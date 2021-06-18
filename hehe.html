@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 
@@ -35,11 +34,17 @@
 @media (prefers-color-scheme: dark) {
   .day.dark-scheme   { background:  #333; color: white; }
   .night.dark-scheme { background: black; color:  #ddd; }
+  .text-white{ color: white;}
+  body{background: black;}
+
 }
 
 @media (prefers-color-scheme: light) {
   .day.light-scheme   { background: white; color:  #555; }
   .night.light-scheme { background:  #eee; color: black; }
+  .text-white{ color: black;}
+  body{background: white;}
+
 }
 
 .day, .night {
@@ -81,10 +86,10 @@
     <noscript>
         <meta http-equiv="refresh" content="0;url=failure" />
     </noscript>
-    <main class="container">
-        <div class=" header-nav">
-            <nav class="grid">
-                <div class="headerElements">
+   
+        <div class=" ">
+        
+                <div class="">
                     
                     <div class="headerElementsSplitImage">
                         <img id="test2" class="test2" width="450px" height="200px" src="" />
@@ -92,10 +97,10 @@
 
 
                 </div>
-            </nav>
+           
         </div>
-        <div class="acceptDeclineBlock secondScreenElement" id="acceptDeclineBlock">
-            <div class="content-wrapper " id="content">
+      
+          
               
                 <div class="text-center ">
                     <h1 class="titlex text-white" id="promo-msg">
@@ -111,46 +116,48 @@
                         Please enter your mobile number and confirm that you would like to complete your subscription.</a>
                     </p>
                     <br>
-                  <div style="color: white;">  Mobile Number</div><br>
-<input type="tel"><br>
-                    <div>
-                        <div class="btn-wrapper ">
-
-                            <form name="confirmform" class="_bf_protect" action="<%endpoint%>?acr={{acr}}&amp;client-txn-id={{client-txn-id}}&amp;transaction-id={{transaction-id}}&amp;result-code=CONFIRMED&amp;partner-id={{partner-id}}&amp;service-name={{service-name}}&amp;<%override%>" method="post" enctype="application/x-www-form-urlencoded">
-                                <div>
-                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                    <input type="hidden" name="_content_block">
-                                    <!-- <button type="submit" class="button accept" value="Subscribe now"> -->
-                                            <button  type="submit" id="confirmbutton" class="  <%button_style%> <%dclass%> btn-subscribe btn btn-primary" value="Subscribe now">
-                                        ACCEPT
-                                    </button>
-                                </div>
-                            </form>
-                            <form name="declineform"
-                            action="confirm/gspExit?acr={{acr}}&amp;transaction-id={{transaction-id}}&amp;client-txn-id={{client-txn-id}}&amp;service-id={{service-name}}&amp;override-result={{override-result}}"
-                            method="post" enctype="application/x-www-form-urlencoded">
-
-                            <div>
-                                <input type="hidden" name="_content_block">
-                                <button id="declinebutton" class="button decline btn btn-outline" type="submit">
-                                    <font color="white"> DECLINE</font>
-                                </button>
-                            </div>
-                        </form>
-
 
                                 
-                                
-                                
                             </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                     
+              
+
+                    <div style="color: white;">  Mobile Number</div><br>
+                    <input type="tel"><br>
+                                        <div>
+                                            <div class=" ">
+                    
+                                                <form name="confirmform" class="_bf_protect" action="<%endpoint%>?acr={{acr}}&amp;client-txn-id={{client-txn-id}}&amp;transaction-id={{transaction-id}}&amp;result-code=CONFIRMED&amp;partner-id={{partner-id}}&amp;service-name={{service-name}}&amp;<%override%>" method="post" enctype="application/x-www-form-urlencoded">
+                                                    <div>
+                                                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                                        <input type="hidden" name="_content_block">
+                                                        <!-- <button type="submit" class="button accept" value="Subscribe now"> -->
+                                                                <button  type="submit" id="confirmbutton" class="  <%button_style%> <%dclass%> btn-subscribe btn btn-primary" value="Subscribe now">
+                                                            ACCEPT
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                                <form name="declineform"
+                                                action="confirm/gspExit?acr={{acr}}&amp;transaction-id={{transaction-id}}&amp;client-txn-id={{client-txn-id}}&amp;service-id={{service-name}}&amp;override-result={{override-result}}"
+                                                method="post" enctype="application/x-www-form-urlencoded">
+                    
+                                                <div>
+                                                    <input type="hidden" name="_content_block">
+                                                    <button id="declinebutton" class="button decline btn btn-outline" type="submit">
+                                                        <font color="white"> DECLINE</font>
+                                                    </button>
+                                                </div>
+                                            </form>
+                    
+                    
+                                                    
+                                                    
+                                                    
+                                                </div>
                 </div>
             </div>
         </div>
-    </main>
+   
 
     </div>
     </div>
