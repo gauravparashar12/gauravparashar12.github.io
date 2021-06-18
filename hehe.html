@@ -1,1 +1,535 @@
 
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Double Opt In</title>
+
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+    <meta name="Description" content="waspconfirm">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>
+        Double Opt In
+    </title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://wwwstg.vodacom.co.za/cloud/webassets/images/favicon-new.ico">
+    <!-- <link href="https://wwwstg.vodacom.co.za/cloud/webassets/css/style.css" rel="stylesheet" type="text/css" media="all" property="stylesheet" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://wwwstg.vodacom.co.za/cloud/webassets/css/fonts/font_import.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="deregistration/css/deregistration.min.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://wwwstg.vodacom.co.za/cloud/webassets/css/style-react.css" /> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="purchase/css/combined.css">
+    <link rel="stylesheet" type="text/css" href="purchase/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/content-page.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/content-block-poup.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://www.vodacom.co.za/cloud/dcb/combined.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vodacom.co.za/cloud/dcb/css/common.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vodacom.co.za/cloud/dcb/css/content-page.css">
+    <link rel="stylesheet" type="text/css" href="https://www.vodacom.co.za/cloud/dcb/css/content-block-poup.css">
+    <style>
+.day   { background: #eee; color: black; }
+.night { background: #333; color: white; }
+
+@media (prefers-color-scheme: dark) {
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  .day.light-scheme   { background: white; color:  #555; }
+  .night.light-scheme { background:  #eee; color: black; }
+}
+
+.day, .night {
+  display: inline-block;
+  padding: 1em;
+  width: 7em;
+  height: 2em;
+  vertical-align: middle;
+}
+
+    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="purchase/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/doi.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/mod-mobile-double-opt-in.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/mod-mobile-double-opt-in-overlay.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/common.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="purchase/css/content-page.css" />
+    <link rel="stylesheet" type="text/css" href="purchase/css/content-block-poup.css" /> -->
+
+  
+    <!-- <link rel="preload" as="font" type="font/woff2" href="css/fonts/VodafoneRegular.woff" crossorigin /> -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=YES,initial-scale=1">
+    <meta name="description" content="Content page">
+    <meta name="keywords" content="content page">
+
+
+    <script type="text/javascript" src="https://wwwstg.vodacom.co.za/cloud/webassets/js/jquery.min.js"></script>
+    <!-- YOU CAN INLCUDE THE SCRIPT IN THIS COMMENT IN YOUR PAGE, OR JUST TAKE SPECIFIC SCRIPTS AND PUT USE THEM HOWEVER YOU LIKE -->
+    <script type="text/javascript" src="https://wwwstg.vodacom.co.za/cloud/webassets/js/fn_global_scripts.js"></script>
+    <!-- YOU CAN INLCUDE THE SCRIPT IN THIS COMMENT IN YOUR PAGE, OR JUST TAKE SPECIFIC SCRIPTS AND PUT USE THEM HOWEVER YOU LIKE -->
+    <script type="text/javascript" src="https://wwwstg.vodacom.co.za/cloud/webassets/js/utagUtil.js"></script>
+    <script type="text/javascript" src="https://wwwstg.vodacom.co.za/cloud/webassets/js/sjcl.js"></script>
+    
+</head>
+
+<body class="vd">
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=failure" />
+    </noscript>
+    <main class="container">
+        <div class=" header-nav">
+            <nav class="grid">
+                <div class="headerElements">
+                    
+                    <div class="headerElementsSplitImage">
+                        <img id="test2" class="test2" width="450px" height="200px" src="" />
+                    </div>
+
+
+                </div>
+            </nav>
+        </div>
+        <div class="acceptDeclineBlock secondScreenElement" id="acceptDeclineBlock">
+            <div class="content-wrapper " id="content">
+              
+                <div class="text-center ">
+                    <h1 class="titlex text-white" id="promo-msg">
+                        Subscribe to Fun Gamers Club for R5.00 per day with Vodacom
+                    </h1>
+                    <p class="flexi-text text-center text-white" id="custom-consent-msg">
+                        You are about to subscribe to FunGamers Club FREE for 1 day thereafter R5.00 per day.
+
+                       
+                    </p>
+
+                    <p class="flexi-text text-white">
+                        Please enter your mobile number and confirm that you would like to complete your subscription.</a>
+                    </p>
+                    <br>
+                  <div style="color: white;">  Mobile Number</div><br>
+<input type="tel"><br>
+                    <div>
+                        <div class="btn-wrapper ">
+
+                            <form name="confirmform" class="_bf_protect" action="<%endpoint%>?acr={{acr}}&amp;client-txn-id={{client-txn-id}}&amp;transaction-id={{transaction-id}}&amp;result-code=CONFIRMED&amp;partner-id={{partner-id}}&amp;service-name={{service-name}}&amp;<%override%>" method="post" enctype="application/x-www-form-urlencoded">
+                                <div>
+                                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                    <input type="hidden" name="_content_block">
+                                    <!-- <button type="submit" class="button accept" value="Subscribe now"> -->
+                                            <button  type="submit" id="confirmbutton" class="  <%button_style%> <%dclass%> btn-subscribe btn btn-primary" value="Subscribe now">
+                                        ACCEPT
+                                    </button>
+                                </div>
+                            </form>
+                            <form name="declineform"
+                            action="confirm/gspExit?acr={{acr}}&amp;transaction-id={{transaction-id}}&amp;client-txn-id={{client-txn-id}}&amp;service-id={{service-name}}&amp;override-result={{override-result}}"
+                            method="post" enctype="application/x-www-form-urlencoded">
+
+                            <div>
+                                <input type="hidden" name="_content_block">
+                                <button id="declinebutton" class="button decline btn btn-outline" type="submit">
+                                    <font color="white"> DECLINE</font>
+                                </button>
+                            </div>
+                        </form>
+
+
+                                
+                                
+                                
+                            </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    </div>
+    </div>
+    <div class="device_message_overlay loading">
+        <div class="overlay_content">
+            <p>
+            <h2>Please wait...</h2><br />
+            <img class="loaderimg lazyLoad" lazysrc="purchase/images/loader.gif" src="" alt="loading">
+            </p>
+        </div>
+    </div>
+    <div class="confirmationScreen error displayNone" id="errorScreen">
+        <div class="overlay_content">
+            <p class="overlay-title">
+                Service error
+            </p>
+            <img class="lazyLoad" lazysrc="purchase/images/warning.png" alt="warning">
+            <p class="errorp">
+                We are unable to subscribe you to the service due to a technical problem. Please try again later.
+            </p>
+            <a class='retrybutton' id="retrylink"  href=''>Retry</a>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="contentServicesBlocked firstScreenElement displayNone" id="contentblockoverlay">
+
+
+        <div class="contentWrapper text-center">
+    
+            <div class="topLine"></div>
+            <div class="">
+                <img src="https://www.vodacom.co.za/cloud/dcb/images/error.svg" alt="error" class="error-icon">
+            </div>
+            <h1 id='titlex' class="titlex font-bold">Content Services Blocked</h1>
+            <p class="large-text flexi-text  text-justify" align='justify'id="custom-override-msg" ></p>
+            <p class=" text-justify small-text"><b class="font-bold">For more info: </b><a
+                    href="http://voda.com/content-services" target="_blank">vodacom.co.za/content-block/faq/</a></p>
+            <p class="large-text flexi-text text-justify">Do you want to continue with this purchase?</p>
+    
+            <div class="btn-wrapper btn-group">
+                <div class="btn-col ">
+                    <!-- <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <input type="hidden" name="_content_block_accept" value="ACCEPTED">
+                        <div id="contentBlockAcceptbtn" class="button accept _bf_protect btn btn-primary override-btn" name="contentBlockAccept" type="button">
+                            ACCEPT
+                        </div> -->
+                        <form name="confirmform" class="_bf_protect" action="<%endpoint%>?acr={{acr}}&amp;client-txn-id={{client-txn-id}}&amp;transaction-id={{transaction-id}}&amp;result-code=CONFIRMED&amp;partner-id={{partner-id}}&amp;service-name={{service-name}}&amp;<%override%>" method="post" enctype="application/x-www-form-urlencoded">
+                            <div>
+                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                <input type="hidden" name="redirecturl" value="{{partner-redirect-url}}">
+                                <input type="hidden" name="packageid" value="{{package-id}}">
+                                <input type="hidden" name="_content_block">
+                                <!-- <button type="submit" class="button accept" value="Subscribe now"> -->
+                                        <button  type="submit" id="confirmbutton" class="  <%button_style%> <%dclass%> btn-subscribe btn btn-primary" value="Subscribe now">
+                                    ACCEPT
+                                </button>
+                            </div>
+                        </form>
+                    <!-- <%overlay%> -->
+                </div>
+                <div class="btn-col ">
+                    <input type="hidden" name="_content_block_decline" value="DECLINED">
+                    <button class="btn-gray-overlay btn btn-outline-inverse" name="contentBlockDecline"
+                        type="button">
+                        DECLINE
+                    </button>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+
+
+            <!-- TRANSPARENT OVERLAY -->
+            <!-- <div class="contentBlockedOverlay firstScreenElement"></div> -->
+            </div>
+
+
+
+            </div>
+
+
+            <!--Application error reporting-->
+            <script type='text/javascript'>
+                (function () {
+                    'use strict';
+
+                    window.CustomEventArray = function (callback) {
+
+                        window.CustomEventArray.EVENT_TYPE = {
+                            PUSH: 'push',
+                            POP: 'pop'
+                        };
+
+                        var cb = callback || function () { };
+                        var _stack = [];
+                        var cb_queue = [cb];
+
+                        var processCallbacks = function (evt, obj) {
+                            for (var i = 0, len = cb_queue.length; i < len; i++) {
+                                cb_queue[i](evt, obj);
+                            }
+                        };
+
+                        this.push = function (obj) {
+                            _stack.push(obj);
+                            processCallbacks(window.CustomEventArray.EVENT_TYPE.PUSH, obj);
+                        };
+
+                        this.pop = function () {
+                            var o = _stack.pop();
+                            processCallbacks(window.CustomEventArray.EVENT_TYPE.POP, o);
+                            return o;
+                        };
+
+                        this.stack = function () {
+                            return _stack;
+                        };
+
+                        this.setCallback = function (callback) {
+                            cb_queue.push(callback);
+                        };
+
+                    };
+
+                    window.VodacomJSErrorEvents = new window.CustomEventArray();
+
+                    window.onerror = function (msg, url, line, col, error) {
+                        var d = {};
+                        d.msg = msg;
+                        d.url = url;
+                        d.line = line;
+                        d.col = !col ? '' : col;
+                        d.err = !error ? '' : error;
+                        window.VodacomJSErrorEvents.push(d);
+                    };
+
+                })();
+            </script>
+            <script type='text/javascript'>
+                // var loadScriptAsync = function (a) {
+                //     'use strict';
+
+                //     a = 'script';
+
+                //     //We should download this script per environment.
+                //     //It's now hard coded to '../prod/..'.
+                //     var asyncScripts = ["https://wwwstg.vodacom.co.za/cloud/cached/utag/vodafone/za-microservice/prod/utag.sync.js"];
+
+                //     for (var i = 0; i < asyncScripts.length; i++) {
+                //         var s = document.createElement(a);
+                //         s.type = 'text/javascript';
+                //         s.async = true;
+                //         s.src = asyncScripts[i];
+                //         var x = document.getElementsByTagName(a)[0];
+                //         x.parentNode.insertBefore(s, x);
+                //     }
+                // };
+                // window.onload = loadScriptAsync;
+            </script>
+            <script>
+                fillData();
+              
+function fillData(){
+    data={
+                    "imageurl":"https://www.vodacom.co.za/cloud/dcb/CTB_1.jpg",
+                    "service-price":"R45",
+                    "price":"PW",
+                    "once-class":"once",
+                    "promo-msg":"Subscribe to Viddigo for R10.00 per day with Vodacom.",
+                    "custom-override-msg":"You are about to subscribe to Viddigo FREE for 1 day thereafter R10.00 per day.",
+                    "service-recurring":"",
+                    "service-billing":"",
+                    "custom-consent-msg":"You are about to subscribe to Viddigo FREE for 1 day thereafter R10.00 per day.  Please select either \"ACCEPT\" or \"DECLINE\". You will receive an SMSconfirmation once subscribed.",
+                    "partner-redirect-url":"",
+                    "show-consent-page":"",
+                    "show-override-page":"N",
+                    "tncurl":"https://wwwstg.vodacom.co.za/vodacom/terms/terms-and-conditions",
+                    "evinascript":"",
+                }      
+                document.getElementById("test2").src=data.imageurl;
+                document.getElementById("service-price").innerHTML=data["service-price"];
+                document.getElementById("duration").innerHTML=data["price"];
+                document.getElementById("promo-msg").innerHTML=data["promo-msg"];
+                document.getElementById("tncurl").href=data.tncurl;
+                document.getElementById("custom-consent-msg").innerHTML=data["custom-consent-msg"];
+                document.getElementById("retrylink").href=data["partner-redirect-url"];
+                document.getElementById("custom-override-msg").innerHTML=data["custom-override-msg"];
+
+
+                if(data["show-override-page"]=="Y"){
+                    showOverridePage();
+                }
+
+            }
+
+        
+// window._lazyloader = setInterval(function() {
+//     if (document.readyState === "complete") {
+//         $('.lazyLoad').each(function(i, el) {
+//             el.src = el.getAttribute("lazysrc");
+//         });
+//         clearInterval(window._lazyloader);
+//     }
+// }, 50);
+// function hideLoading() {
+//     $('.device_message_overlay.loading').animate({
+//         'top': '-2000px'
+//     });
+// }
+
+// function showLoading() {
+//     $('.device_message_overlay.loading').animate({
+//         'top': '0'
+//     });
+// }
+
+// function showErrorScreen() {
+//     $('#contentblockoverlay').hide();
+//     $('#acceptDeclineBlock').hide();
+    
+//     $("#pricewrapper").hide();
+//     $('#errorScreen').show();
+   
+// }
+// function showOverridePage(){
+//     $('#contentblockoverlay').show();
+
+// }
+// if (window.location.href.indexOf('showerror') > -1) {
+//     showErrorScreen();
+//     alert()
+// }
+
+
+// function getdata(acr,txnid){
+    // $.ajax({  
+    //     type: "POST",
+    //     url: "/doi/online/get?acr="+acr+"txnid="+txnid,
+    //     headers: {
+    //         'X-Requested-With': '{{x-requested-with}}',
+    //         'X-Referer': xref
+    //     },
+    //     success: function(d) {
+            //  data={
+            //         "imageurl":"https://wwwstg.vodacom.co.za/cloud/dls/partners/dcb_mobiledirect_viddigo.jpg",
+            //         "service-price":"R45",
+            //         "price":"PW",
+            //         "once-class":"once",
+            //         "promo-msg":"Subscribe to Viddigo for R10.00 per day with Vodacom.",
+            //         "custom-override-msg":"You are about to subscribe to Viddigo FREE for 1 day thereafter R10.00 per day.",
+            //         "service-recurring":"",
+            //         "service-billing":"",
+            //         "custom-consent-msg":"You are about to subscribe to Viddigo FREE for 1 day thereafter R10.00 per day.  Please select either \"ACCEPT\" or \"DECLINE\". You will receive an SMSconfirmation once subscribed.",
+            //         "partner-redirect-url":"",
+            //         "show-consent-page":"",
+            //         "show-override-page":"Y",
+            //         "tncurl":"https://wwwstg.vodacom.co.za/vodacom/terms/terms-and-conditions"
+            //     }              
+            //    fillData(data);
+    //     },
+    //     error: function(err) {
+    //             showErrorScreen();
+            
+    //     }
+    // }).done(function(data) {
+    
+    // });
+// }
+// function formSubmit(f) {
+
+//     let frm = $('[name*='+f+']');
+//    const xref = document.referrer || '{{x-referer}}' || '';
+    
+//     $.ajax({  
+//         type: frm.attr('method'),
+//         url: frm.attr('action'),
+//         data: frm.serialize(),
+//         headers: {
+//             'X-Requested-With': '{{x-requested-with}}',
+//             'X-Referer': xref
+//         },
+//         success: function(data) {
+//              if(data.redirect){
+//                 window.location.replace(data.redirect);
+//              }else{
+//                  hideLoading();
+//                  showErrorScreen();
+//              }
+               
+                
+              
+               
+//         },
+//         error: function(err) {
+//             const data = err.responseJSON;
+
+//             if (data && data.redirect) {
+//                window.location.replace(data.redirect);
+//             } else {
+//                 hideLoading();
+//                 showErrorScreen();
+//             }
+         
+//         }
+//     }).done(function(data) {
+    
+//     });
+
+//     return false;
+// }
+
+// $(function() {
+   
+//     var contentBlockAcceptButton = $('#contentBlockAcceptbtn');
+   
+//     var contentblockoverlay = $('#contentblockoverlay');
+//     $("#declinebutton").attr("disabled", false);    
+   
+//     var closeBtn =$('#closeBtn');
+
+//     closeBtn.on("click",function(e) {
+//         e.preventDefault();
+//         showLoading();
+//         formSubmit("declineform");
+//         closeBtn.attr("disabled", true);
+//     });
+
+
+// $('button[name="contentBlockDecline"]').on("click",function() {
+//     $('.device_message_overlay.blockedcontent').animate({
+//         'top': '-2000px'
+//     });
+//     $('[name="_content_block"]').val($('[name="_content_block_decline"]').val());
+//     showLoading();
+//     formSubmit('declineform');
+// });
+
+   
+// $('form[name="confirmform"]').on("submit",function(e) {
+//     showLoading();
+//     e.preventDefault();
+
+//     $("#confirmbutton").attr("disabled", true);
+//     $("#declinebutton").attr("disabled",true); 
+
+//     formSubmit('confirmform');
+
+//     return false;
+// });
+
+
+
+
+// $('form[name="declineform"]').on("submit",function(e) {
+//     $("#declinebutton").attr("disabled", true);    
+//     $("#confirmbutton").attr("disabled", true);
+
+//     e.preventDefault();
+//     showLoading();
+//     formSubmit('declineform');
+//     return false;
+// }); 
+
+// contentBlockAcceptButton.on("click",function() {
+//     if(showConsentPage=='N'){
+//         formSubmit('confirmform');
+//     }
+//     contentblockoverlay.slideUp();
+//     contentBlockAcceptButton.attr("disabled", true);
+   
+ 
+// });
+
+// });
+            </script>
+</body>
+
+</html>
