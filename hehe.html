@@ -31,18 +31,18 @@
 .day   { background: #eee; color: black; }
 .night { background: #333; color: white; }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   .day.dark-scheme   { background:  #333; color: white; }
   .night.dark-scheme { background: black; color:  #ddd; }
-  .text-white{ color: black;}
+  .text-white{ color: black !important}
   body{background: white;}
 
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   .day.light-scheme   { background: white; color:  #555; }
   .night.light-scheme { background:  #eee; color: black; }
-  .text-white{ color: white;}
+  .text-white{ color: white !important}
   body{background: black;}
 
 }
@@ -102,7 +102,7 @@
       
           
               
-                <div class="text-center ">
+                <div class="text-center text-white">
                     <h1 class="titlex text-white" id="promo-msg">
                         Subscribe to Fun Gamers Club for R5.00 per day with Vodacom
                     </h1>
@@ -122,7 +122,7 @@
                      
               
 
-                    <div style="color: white;">  Mobile Number</div><br>
+                    <div class="flexi-text text-white">  Mobile Number</div><br>
                     <input type="tel"><br>
                                         <div>
                                             <div class=" ">
