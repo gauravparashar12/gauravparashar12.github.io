@@ -173,7 +173,7 @@ body {
   padding: 15px; }
 
 .v-pull-up {
-  min-height: 150vh; }
+  min-height: 50vh; }
 
 /*@media (orientation: landscape) and (max-width: 767px) {
   	.v-stick-to-bottom{
