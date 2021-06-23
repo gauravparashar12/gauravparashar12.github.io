@@ -1,0 +1,63 @@
+ 
+var correctInnerHeight = window.innerHeight;
+var isFocused = false;
+var docHeight = $(document).height();
+var input = $('.myInput');
+input.click(function(e){
+  isFocused = true;
+  input.css('position', 'absolute');
+  // Wait for the keyboard to open
+  setTimeout(function(){
+    docHeight = $(document).height();
+    var lastScrollPos = $(document).scrollTop();
+    // Scroll to the bottom
+    window.scroll(0, $(document).height());
+    // Give it a millisecond to get there
+    setTimeout(function(){
+      // Save the innerHeight in this state
+      correctInnerHeight = window.innerHeight;
+      console.log(correctInnerHeight);
+      // Now scroll back to where you were, or wish to be.
+      window.scroll(0, lastScrollPos);
+      fixInputPosition();
+      // Make sure the input is focused
+      input.focus();
+    }, 1);
+  }, 1000);
+});
+
+input.on('blur', function(){
+  input.css('position', 'fixed');
+  input.css('top', 'auto');
+  input.css('bottom', '');
+  isFocused = false;
+});
+
+$(window).scroll(function(){
+  fixInputPosition();
+});
+
+function fixInputPosition(){
+  if(isFocused){
+    var offsetTop = ($(window).scrollTop() + correctInnerHeight) - input.height();
+    offsetTop = Math.min(docHeight, offsetTop);
+    input.css('top', offsetTop);
+    input.css('bottom', 'auto');
+  }
+};
+body, html{
+  margin: 0;
+}
+html{
+  width: 100%;
+  height: 2000px;
+}
+.myInput{
+  position: fixed;
+  height: 30px;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid black;
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<input type='text' class='myInput'>
