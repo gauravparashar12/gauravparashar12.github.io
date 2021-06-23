@@ -1,5 +1,5 @@
 <!DOCTYPE HTML> 
-<html>
+<html class="v-rotate-orientation">
 <head>
 	<meta charset="UTF-8">
   	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -12,19 +12,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
-  <style>
-  
-   </style>
 </head>
-<body class="vd">
+<body class="">
 	<main class="v-mr-0-auto v-max-w-768 v-pd-15" >
-		<div class="v-grid v-grid-vertical" style="min-height:calc(100vh - 30px);">
+	
 			<figure class="text-center v-bmr-20">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
-			<div class="v-col" id="availHeight">
-				<section id="step1" class="v-grid v-grid-vertical" setheight>
-					<div class="v-col">
+			
+				<section id="step1">
+					<div>
 						<p class="v-bmr-20">
 							You are about to subscribe to FunGamers Club <strong>FREE for 1 day</strong> thereafter <strong>R5.00 per day</strong>. Unsubscribe at anytime. 
 						</p>
@@ -39,13 +36,15 @@
 						    </div>
 						</form>
 					</div>
-				    <div>
-				    	<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step1', '#step2')">Send OTP</button>
-				    	<button type="button" class="v-btn v-btn-block" >Cancel</button>
+				    <div class="v-stick-to-bottom">
+				    	<div class="v-stick-inner">
+				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step1', '#step2')">Send OTP</button>
+				    		<button type="button" class="v-btn v-btn-block" >Cancel</button>
+				    	</div>
 				    </div>
 				</section>
-				<section id="step2" class="v-hide v-grid v-grid-vertical" setheight>
-					<div class="v-col">
+				<section id="step2" class="v-hide">
+					<div>
 						<p class="v-bmr-20">
 							To confirm this charge on your Vodacom account/airtime, please enter the OTP that was sent to 082*****67.
 						</p>
@@ -60,17 +59,19 @@
 						    </div>
 						</form>
 					</div>
-					
-					<div >
-						<div class="v-bmr-15">
-					    	By selecting 'Accept', you agree to the <a href="" class="v-link-nodeco"><strong>Terms & Conditions</strong></a>. 
-					    </div>
-				    	<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Accept</button>
-				    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
+					<div class="v-stick-to-bottom">
+				    	<div class="v-stick-inner">
+				    		<div class="v-bmr-15">
+						    	By selecting 'Accept', you agree to the <a href="" class="v-link-nodeco"><strong>Terms & Conditions</strong></a>. 
+						    </div>
+					    	<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Accept</button>
+					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
+				    	</div>
 				    </div>
+					
 				</section>
-				<section id="step3" class="v-hide v-grid v-grid-vertical" setheight>
-					<div class="v-col">
+				<section id="step3" class="v-hide">
+					<div>
 						<div class="v-vmr-24">
 							<div class="v-grid v-grid_align-center v-grid-vertical-align-center">
 								<div class="v-rpd-15">
@@ -106,44 +107,51 @@
 							You will receive an SMS to confirm your subscription.  
 						</p>
 					</div>
-					<div>
-						<button type="button" class="v-btn v-btn-block v-btn-primary">Close</button>
-					</div>
+					
+					<div class="v-stick-to-bottom">
+				    	<div class="v-stick-inner">
+				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-15" onclick="nextStep('#step3', '#step4')">Close</button>
+				    	</div>
+				    </div>
 				</section>
-			</div>
+				<section id="step4" class="v-hide">
+					<div class="v-text-center">
+
+						<div class="v-bmr-20">
+							<h3 class="v-text-size-24"><strong>Content Services Blocked </strong></h3>
+						</div>
+						<p class="v-bmr-20">
+							You have blocked content services for this number - however, you can still purchase this specific content and all other services will remain blocked. 
+						</p>
+						<p class="v-bmr-20 ">
+							For more info: <br>
+							<a href="vodacom.co.za/content-block/faq/">vodacom.co.za/content-block/faq/</a> 
+						</p>
+						<p class="v-bmr-20">
+							Do you want to continue with this purchase? 
+						</p>
+					</div>
+					
+					<div class="v-stick-to-bottom">
+				    	<div class="v-stick-inner">
+				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step5', '#step4')">Yes, Continue</button>
+					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step4', '#step3')">Cancel</button>
+				    	</div>
+				    </div>
+				</section>
 			
-		</div>
 	</main>
 	
 
-<!--<script type="text/javascript" src="dummy.js"></script>-->
-	<script>
-		function nextStep(currentId, nextId ){
-	document.querySelector(currentId).classList.add('v-hide');
-	document.querySelector(nextId).classList.remove('v-hide');
-}
-function backStep(currentId, backId ){
-	document.querySelector(currentId).classList.add('v-hide');
-	document.querySelector(backId).classList.remove('v-hide');
-}
-
-window.onorientationchange = function(){
-	setheight();
-}
-window.onresize = function(){
-	setheight();
-}
-window.onload = function(){
-	setheight();
-}
-
-function setheight(){
-	var h = document.querySelector('#availHeight').clientHeight;
-	var sections = document.querySelectorAll('[setheight]');//.style.minHeight = h+'px';
-	sections.forEach(function(item){
-        item.style.minHeight = h+'px';
-    });
-}
-	</script>
+<script type="text/javascript">
+	function nextStep(currentId, nextId ){
+		document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(nextId).classList.remove('v-hide');
+	}
+	function backStep(currentId, backId ){
+		document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(backId).classList.remove('v-hide');
+	}
+</script>
 </body>
 </html>
