@@ -162,6 +162,9 @@ body {
   left: 0;
   z-index: 100; }
 
+.v-stick-to-bottom.v-pull-buttons {
+  bottom: 300px; }
+
 .v-stick-inner {
   margin: 0 auto;
   max-width: 768px;
