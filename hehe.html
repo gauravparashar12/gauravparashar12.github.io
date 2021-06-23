@@ -31,7 +31,7 @@
 						<form >
 							<div class="v-bmr-15">
 							    <label for="inputOTP" class="v-label"><abbr class="v-text-red">*</abbr>Mobile Number</label>
-							    <input type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required required onfocus="isFocused()" onblur="isBlured()">
+							    <input type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required required onfocus="isFocused(event)" onblur="isBlured(event)">
 							    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
 						    </div>
 						</form>
@@ -152,11 +152,16 @@
 		document.querySelector(currentId).classList.add('v-hide');
 		document.querySelector(backId).classList.remove('v-hide');
 	}
-	function isFocused(){
-		document.querySelector('#contentWrapper').classList.add('v-pull-up');
+	function isFocused(e){
+		document.querySelector('body').classList.add('v-pull-up');
+		var h = e.target.offsetTop;
+		window.scrollTo({
+		    top: h-50,
+		    behavior: "smooth"
+		});
 	}
-	function isBlured(){
-		document.querySelector('#contentWrapper').classList.remove('v-pull-up');
+	function isBlured(e){
+		document.querySelector('body').classList.remove('v-pull-up');
 	}
 </script>
 </body>
