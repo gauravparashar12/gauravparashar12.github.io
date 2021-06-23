@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
   	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" content="Vodafone"/>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -12,23 +11,10 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
-<style type="text/css">
-	#contentWrapper{
-		transition:all ease .2s;
-		position: relative;
-		top: 0;
-	}
 	
-	@media (orientation: portrait) {
-	  #contentWrapper.pull{
-			top: -40vh;
-		}
-	}
-	</style>
 </head>
-<body class="">
-	<main class="v-mr-0-auto v-max-w-768 v-pd-15" id="contentWrapper">
-	
+<body >
+	<main class="v-container" id="contentWrapper">
 			<figure class="text-center v-bmr-20">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
@@ -41,17 +27,17 @@
 						<p class="v-bmr-20">
 							Please enter your mobile number to complete your subscription. 
 						</p>
-						<form >
+					
 							<div class="v-bmr-15">
 							    <label for="inputOTP" class="v-label"><abbr class="v-text-red">*</abbr>Mobile Number</label>
-							    <input spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required  onfocus="isFocused(event)" onblur="isBlured(event)">
+							    <input spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required onkeyup="onEnter(event,'#step1', '#step2')" onfocus="isFocused(event)" onblur="isBlured(event)">
 							    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
 						    </div>
-						</form>
+					
 					</div>
 				    <div class="v-stick-to-bottom">
 				    	<div class="v-stick-inner">
-				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step1', '#step2')">Send OTP</button>
+				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step1', '#step2')">Send OTP</button>
 				    		<button type="button" class="v-btn v-btn-block" >Cancel</button>
 				    	</div>
 				    </div>
@@ -61,7 +47,7 @@
 						<p class="v-bmr-20">
 							To confirm this charge on your Vodacom account/airtime, please enter the OTP that was sent to 082*****67.
 						</p>
-						<form>
+						
 							<div class="v-bmr-15">
 							    <label for="inputPIN" class="v-label"><abbr class="v-text-red">*</abbr>One-Time PIN</label>
 							    <input type="tel" class="v-input" id="inputPIN" placeholder="1234" required onfocus="isFocused(event)" onblur="isBlured(event)">
@@ -70,18 +56,17 @@
 						    <div class="v-bmr-15 v-text-center">
 						    	Haven't received anything? <a href="" class="v-link-nodeco"><strong>Resend OTP</strong></a> 
 						    </div>
-						</form>
+						
 					</div>
 					<div class="v-stick-to-bottom">
 				    	<div class="v-stick-inner">
 				    		<div class="v-bmr-15">
 						    	By selecting 'Accept', you agree to the <a href="" class="v-link-nodeco"><strong>Terms & Conditions</strong></a>. 
 						    </div>
-					    	<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Accept</button>
+					    	<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Accept</button>
 					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
 				    	</div>
 				    </div>
-					
 				</section>
 				<section id="step3" class="v-hide">
 					<div>
@@ -123,35 +108,11 @@
 					
 					<div class="v-stick-to-bottom">
 				    	<div class="v-stick-inner">
-				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-15" onclick="nextStep('#step3', '#step4')">Close</button>
+				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-15" onclick="backStep('#step3', '#step1')">Close</button>
 				    	</div>
 				    </div>
 				</section>
-				<section id="step4" class="v-hide">
-					<div class="v-text-center">
-
-						<div class="v-bmr-20">
-							<h3 class="v-text-size-24"><strong>Content Services Blocked </strong></h3>
-						</div>
-						<p class="v-bmr-20">
-							You have blocked content services for this number - however, you can still purchase this specific content and all other services will remain blocked. 
-						</p>
-						<p class="v-bmr-20 ">
-							For more info: <br>
-							<a href="vodacom.co.za/content-block/faq/">vodacom.co.za/content-block/faq/</a> 
-						</p>
-						<p class="v-bmr-20">
-							Do you want to continue with this purchase? 
-						</p>
-					</div>
-					
-					<div class="v-stick-to-bottom">
-				    	<div class="v-stick-inner">
-				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step5', '#step4')">Yes, Continue</button>
-					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step4', '#step3')">Cancel</button>
-				    	</div>
-				    </div>
-				</section>
+				
 			
 	</main>
 	
@@ -165,36 +126,23 @@ function backStep(currentId, backId ){
 	document.querySelector(currentId).classList.add('v-hide');
 	document.querySelector(backId).classList.remove('v-hide');
 }
+function onEnter(e, currentId, nextId ){
+	if (e.keyCode === 13 || e.code === "Enter") {  
+        document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(nextId).classList.remove('v-hide');
+    }
+}
 function isFocused(e){
 	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	var h = e.target.offsetTop;
-	
 	if (isIOS) {
-	  var temp = e.target.closest('section');
-	  var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
-	  //temp2[0].classList.add('v-pull-buttons');
 	  
 	} else {
-	  	//document.querySelector('body').classList.add('v-pull-up');
-	  	//document.querySelector('#contentWrapper').classList.add('pull');
-	  	//document.querySelector('#contentWrapper').style.position = 'relative';
-	  	//document.querySelector('#contentWrapper').style.top = -h+100+'px';
-		document.querySelector('#contentWrapper').style.top = -h+80+'px';
-	 //  	window.scrollTo({
-		//     top: h-50,
-		//     behavior: "smooth"
-		// });
+	  	document.querySelector('#contentWrapper').style.top = -h+80+'px';
 	}
-	
 }
-	
 function isBlured(e){
 	document.querySelector('#contentWrapper').style.top = 0;
-	//document.querySelector('#contentWrapper').classList.remove('pull');
-	var temp = e.target.closest('section');
-    var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
-	document.querySelector('body').classList.remove('v-pull-up');
-	temp2[0].classList.remove('v-pull-buttons');
 }
 
 if (window.Element && !Element.prototype.closest) {
