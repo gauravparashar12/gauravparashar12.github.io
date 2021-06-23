@@ -144,22 +144,31 @@
 	
 
 <script type="text/javascript">
-	function isFocused(e){
+function nextStep(currentId, nextId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(nextId).classList.remove('v-hide');
+}
+function backStep(currentId, backId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(backId).classList.remove('v-hide');
+}
+function isFocused(e){
 	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	var h = e.target.offsetTop;
-	document.querySelector('body').classList.add('v-pull-up');
+	
 	if (isIOS) {
 	  var temp = e.target.closest('section');
 	  var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
-	  temp2[0].classList.add('v-pull-buttons');
+	  //temp2[0].classList.add('v-pull-buttons');
 	  
 	} else {
-	  console.log('This is Not a IOS device');
+	  	//document.querySelector('body').classList.add('v-pull-up');
+	  	window.scrollTo({
+		    top: h-50,
+		    behavior: "smooth"
+		});
 	}
-	window.scrollTo({
-	    top: h-50,
-	    behavior: "smooth"
-	});
+	
 }
 function isBlured(e){
 	var temp = e.target.closest('section');
