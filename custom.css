@@ -164,7 +164,7 @@ body {
   z-index: 100; }
 
 .v-stick-to-bottom.v-pull-buttons {
-  bottom: 300px; }
+  bottom: 15vh; }
 
 .v-stick-inner {
   margin: 0 auto;
