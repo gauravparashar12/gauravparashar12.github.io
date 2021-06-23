@@ -168,8 +168,7 @@ body {
   padding: 15px; }
 
 .v-pull-up {
-  margin-top: -30vh;
-  transition: all .2s ease-in-out; }
+  min-height: 150vh; }
 
 /*@media (orientation: landscape) and (max-width: 767px) {
   	.v-stick-to-bottom{
