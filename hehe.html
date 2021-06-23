@@ -2753,6 +2753,34 @@ a.v-link-white:hover,
 	</main>
 	
 
-<script type="text/javascript" src="dummy.js"></script>
+<!--<script type="text/javascript" src="dummy.js"></script>-->
+	<script>
+		function nextStep(currentId, nextId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(nextId).classList.remove('v-hide');
+}
+function backStep(currentId, backId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(backId).classList.remove('v-hide');
+}
+
+window.onorientationchange = function(){
+	setheight();
+}
+window.onresize = function(){
+	setheight();
+}
+window.onload = function(){
+	setheight();
+}
+
+function setheight(){
+	var h = document.querySelector('#availHeight').clientHeight;
+	var sections = document.querySelectorAll('[setheight]');//.style.minHeight = h+'px';
+	sections.forEach(function(item){
+        item.style.minHeight = h+'px';
+    });
+}
+	</script>
 </body>
 </html>
