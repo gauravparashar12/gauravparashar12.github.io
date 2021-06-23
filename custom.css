@@ -156,6 +156,7 @@ body {
   to {
     transform: scale(1.5); } }
 .v-stick-to-bottom {
+  transform: translate3d(0, 0, 0);
   position: fixed;
   bottom: 0;
   right: 0;
