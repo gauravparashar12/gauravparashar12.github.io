@@ -12,7 +12,19 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
-
+<style type="text/css">
+	#contentWrapper{
+		transition:all ease .2s;
+		position: relative;
+		top: 0;
+	}
+	
+	@media (orientation: portrait) {
+	  #contentWrapper.pull{
+			top: -200px;
+		}
+	}
+	</style>
 </head>
 <body class="">
 	<main class="v-mr-0-auto v-max-w-768 v-pd-15" id="contentWrapper">
@@ -163,15 +175,19 @@ function isFocused(e){
 	  //temp2[0].classList.add('v-pull-buttons');
 	  
 	} else {
-	  	document.querySelector('body').classList.add('v-pull-up');
-	  	window.scrollTo({
-		    top: h-50,
-		    behavior: "smooth"
-		});
+	  	//document.querySelector('body').classList.add('v-pull-up');
+	  	document.querySelector('#contentWrapper').classList.add('pull');
+	  	//document.querySelector('#contentWrapper').style.position = 'relative';
+	  	//document.querySelector('#contentWrapper').style.top = -h+100+'px';
+	 //  	window.scrollTo({
+		//     top: h-50,
+		//     behavior: "smooth"
+		// });
 	}
 	
 }
 function isBlured(e){
+	document.querySelector('#contentWrapper').classList.remove('pull');
 	var temp = e.target.closest('section');
     var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
 	document.querySelector('body').classList.remove('v-pull-up');
