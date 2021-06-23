@@ -144,25 +144,43 @@
 	
 
 <script type="text/javascript">
-	function nextStep(currentId, nextId ){
-		document.querySelector(currentId).classList.add('v-hide');
-		document.querySelector(nextId).classList.remove('v-hide');
-	}
-	function backStep(currentId, backId ){
-		document.querySelector(currentId).classList.add('v-hide');
-		document.querySelector(backId).classList.remove('v-hide');
-	}
 	function isFocused(e){
-		document.querySelector('body').classList.add('v-pull-up');
-		var h = e.target.offsetTop;
-		window.scrollTo({
-		    top: h-150,
-		    behavior: "smooth"
-		});
+	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	var h = e.target.offsetTop;
+	document.querySelector('body').classList.add('v-pull-up');
+	if (isIOS) {
+	  var temp = e.target.closest('section');
+	  var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
+	  temp2[0].classList.add('v-pull-buttons');
+	  
+	} else {
+	  console.log('This is Not a IOS device');
 	}
-	function isBlured(e){
-		document.querySelector('body').classList.remove('v-pull-up');
-	}
+	window.scrollTo({
+	    top: h-50,
+	    behavior: "smooth"
+	});
+}
+function isBlured(e){
+	var temp = e.target.closest('section');
+    var temp2 = temp.querySelectorAll('.v-stick-to-bottom');
+	document.querySelector('body').classList.remove('v-pull-up');
+	temp2[0].classList.remove('v-pull-buttons');
+}
+
+if (window.Element && !Element.prototype.closest) {
+    Element.prototype.closest = 
+    function(s) {
+        var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+            i,
+            el = this;
+        do {
+            i = matches.length;
+            while (--i >= 0 && matches.item(i) !== el) {};
+        } while ((i < 0) && (el = el.parentElement)); 
+        return el;
+    };
+}
 </script>
 </body>
 </html>
