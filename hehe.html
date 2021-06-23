@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
 </head>
 <body class="">
-	<main class="v-mr-0-auto v-max-w-768 v-pd-15" >
+	<main class="v-mr-0-auto v-max-w-768 v-pd-15" id="contentWrapper">
 	
 			<figure class="text-center v-bmr-20">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
@@ -31,7 +31,7 @@
 						<form >
 							<div class="v-bmr-15">
 							    <label for="inputOTP" class="v-label"><abbr class="v-text-red">*</abbr>Mobile Number</label>
-							    <input type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required>
+							    <input type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required required onfocus="isFocused()" onblur="isBlured()">
 							    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
 						    </div>
 						</form>
@@ -151,6 +151,12 @@
 	function backStep(currentId, backId ){
 		document.querySelector(currentId).classList.add('v-hide');
 		document.querySelector(backId).classList.remove('v-hide');
+	}
+	function isFocused(){
+		document.querySelector('#contentWrapper').classList.add('v-pull-up');
+	}
+	function isBlured(){
+		document.querySelector('#contentWrapper').classList.remove('v-pull-up');
 	}
 </script>
 </body>
