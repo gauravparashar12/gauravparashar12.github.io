@@ -10,13 +10,13 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="custom/custom.css">
+	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
 	
 </head>
 <body >
 	<main class="v-container" id="contentWrapper">
 			<figure class="text-center v-bmr-20">
-				<img src="ad-banner.jpg" class="v-w-full">
+				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
 			
 				<section id="step1">
@@ -117,6 +117,47 @@
 	</main>
 	
 
-<script type="text/javascript" src="dummy.js"></script>
+<script type="text/javascript">
+function nextStep(currentId, nextId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(nextId).classList.remove('v-hide');
+}
+function backStep(currentId, backId ){
+	document.querySelector(currentId).classList.add('v-hide');
+	document.querySelector(backId).classList.remove('v-hide');
+}
+function onEnter(e, currentId, nextId ){
+	if (e.keyCode === 13 || e.code === "Enter") {  
+        document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(nextId).classList.remove('v-hide');
+    }
+}
+function isFocused(e){
+	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	var h = e.target.offsetTop;
+	if (isIOS) {
+	  
+	} else {
+	  	document.querySelector('#contentWrapper').style.top = -h+80+'px';
+	}
+}
+function isBlured(e){
+	document.querySelector('#contentWrapper').style.top = 0;
+}
+
+if (window.Element && !Element.prototype.closest) {
+    Element.prototype.closest = 
+    function(s) {
+        var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+            i,
+            el = this;
+        do {
+            i = matches.length;
+            while (--i >= 0 && matches.item(i) !== el) {};
+        } while ((i < 0) && (el = el.parentElement)); 
+        return el;
+    };
+}
+</script>
 </body>
 </html>
