@@ -135,14 +135,14 @@ function isFocused(e){
 	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	var h = e.target.offsetTop;
 	if (isIOS) {
-	 
-      var temp = e.target.closest('section');
-      var temp2 = temp.querySelector('.v-stick-to-bottom');
-      temp2.classList.add('v-pull-buttons');
-  
+	 if(window.orientation === 0 || window.orientation === 180){
+      		var temp = e.target.closest('section');
+      		var temp2 = temp.querySelector('.v-stick-to-bottom');
+      		temp2.classList.add('v-pull-buttons');
+	 }
     
 	} else {
-	  	document.querySelector('#contentWrapper').style.top = -h+80+'px';
+	  	document.querySelector('#contentWrapper').style.top = -h+120+'px';
 	}
 }
 function isBlured(e){
