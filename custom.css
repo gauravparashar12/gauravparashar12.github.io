@@ -183,10 +183,10 @@ textarea {
   z-index: 100; }
 
 .v-stick-to-bottom.v-pull-buttons-sm {
-  bottom: 100px; }
+  bottom: 50px; }
 
 .v-stick-to-bottom.v-pull-buttons-lg {
-  bottom: 200px; }
+  bottom: 140px; }
 
 .v-stick-inner {
   margin: 0 auto;
