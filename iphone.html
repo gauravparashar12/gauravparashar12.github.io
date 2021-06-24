@@ -150,14 +150,12 @@ function isFocused(e){
 	}
 }
 function isBlured(e){
-  var pullFooterSM = document.querySelectorAll('.v-stick-to-bottom-sm');
-  var pullFooterLG = document.querySelectorAll('.v-stick-to-bottom-lg');
-  pullFooterSM.forEach(function(item) {
-      item.classList.remove('v-pull-buttons-sm');
+  var pullFooter = document.querySelectorAll('.v-stick-to-bottom');
+ 
+  pullFooter.forEach(function(item) {
+      item.classList.remove('v-pull-buttons-sm', 'v-pull-buttons-lg');
   });
-  pullFooterLG.forEach(function(item) {
-      item.classList.remove('v-pull-buttons-lg');
-  });
+ 
 	document.querySelector('#contentWrapper').style.top = 0;
 }
 
