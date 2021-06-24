@@ -150,11 +150,9 @@ function isFocused(e){
 	}
 }
 function isBlured(e){
-  var pullFooter = document.querySelectorAll('.v-stick-to-bottom');
- 
-  pullFooter.forEach(function(item) {
-      item.classList.remove('v-pull-buttons-sm', 'v-pull-buttons-lg');
-  });
+  var temp = e.target.closest('section');
+  var temp2 = document.querySelector('.v-stick-to-bottom');
+  temp2.classList.remove('v-pull-buttons-sm', 'v-pull-buttons-lg');
  
 	document.querySelector('#contentWrapper').style.top = 0;
 }
