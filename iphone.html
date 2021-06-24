@@ -135,16 +135,12 @@ function isFocused(e){
 	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	var h = e.target.offsetTop;
 	if (isIOS) {
-	  if((screen.height > 600 && window.orientation === 0) || (screen.height > 600 && window.orientation === 180)){
-      var temp = e.target.closest('section');
-      var temp2 = document.querySelector('.v-stick-to-bottom');
-      temp2.classList.add('v-pull-buttons-sm');
-    }
-     if((screen.height > 800 && window.orientation === 0) || (screen.height > 800 && window.orientation === 180)){
-      var temp = e.target.closest('section');
-      var temp2 = document.querySelector('.v-stick-to-bottom');
-      temp2.classList.add('v-pull-buttons-lg');
-    }
+	  
+      		var temp = e.target.closest('section');
+      		var temp2 = document.querySelector('.v-stick-to-bottom');
+      		temp2.classList.add('v-pull-buttons');
+  
+   
 	} else {
 	  	document.querySelector('#contentWrapper').style.top = -h+80+'px';
 	}
@@ -152,7 +148,7 @@ function isFocused(e){
 function isBlured(e){
   var temp = e.target.closest('section');
   var temp2 = document.querySelector('.v-stick-to-bottom');
-  temp2.classList.remove('v-pull-buttons-sm', 'v-pull-buttons-lg');
+  temp2.classList.remove('v-pull-buttons');
  
 	document.querySelector('#contentWrapper').style.top = 0;
 }
