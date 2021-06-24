@@ -135,22 +135,21 @@ function isFocused(e){
 	var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 	var h = e.target.offsetTop;
 	if (isIOS) {
-	  
-      		var temp = e.target.closest('section');
-      		var temp2 = document.querySelector('.v-stick-to-bottom');
-      		temp2.classList.add('v-pull-buttons');
+	 
+      var temp = e.target.closest('section');
+      var temp2 = temp.querySelector('.v-stick-to-bottom');
+      temp2.classList.add('v-pull-buttons');
   
-   
+    
 	} else {
 	  	document.querySelector('#contentWrapper').style.top = -h+80+'px';
 	}
 }
 function isBlured(e){
   var temp = e.target.closest('section');
-  var temp2 = document.querySelector('.v-stick-to-bottom');
+  var temp2 = temp.querySelector('.v-stick-to-bottom');
   temp2.classList.remove('v-pull-buttons');
- 
-	document.querySelector('#contentWrapper').style.top = 0;
+  document.querySelector('#contentWrapper').style.top = 0;
 }
 
 if (window.Element && !Element.prototype.closest) {
