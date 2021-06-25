@@ -159,14 +159,25 @@
 	}
 
 	function whenLandscape(){
+		var current  = document.querySelector('#contentWrapper').clientHeight;
+		var h  = document.querySelector('#imgWrapper').clientHeight;
 		if(window.innerHeight < 760){
 			if(window.orientation === 90 || window.orientation === 270){
-				document.querySelector('#imgWrapper').classList.add('v-hide');
+				document.querySelector('#contentWrapper').style.height = current + h + 50+'px';
+				window.scrollTop = h;
 			}
 		}
 		else{
-			document.querySelector('#imgWrapper').classList.remove('v-hide');
+			document.querySelector('#contentWrapper').style.height = 'auto';
 		}
+		// if(window.innerHeight < 760){
+		// 	if(window.orientation === 90 || window.orientation === 270){
+		// 		document.querySelector('#imgWrapper').classList.add('v-hide');
+		// 	}
+		// }
+		// else{
+		// 	document.querySelector('#imgWrapper').classList.remove('v-hide');
+		// }
 	}
 
 	var box = document.querySelector('#contentWrapper');
