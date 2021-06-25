@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
 	
 </head>
-<body >
+<body draggable="true" ondrag="whenDrag(event)" >
 	<main class="v-container" id="contentWrapper">
 			<figure class="text-center v-bmr-20" id="imgWrapper">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
@@ -161,20 +161,23 @@
 	function whenLandscape(){
 		if(window.innerHeight < 760){
 			if(window.orientation === 90 || window.orientation === 270){
-				var h = document.querySelector('#imgWrapper').clientHeight;
-				//document.querySelector('#imgWrapper').style.height = 0;
+				//var h = document.querySelector('#imgWrapper').clientHeight;
+				document.querySelector('#imgWrapper').style.display = 'none';
 				//document.querySelector('#imgWrapper').style.overflow = 'hidden';
 				//document.querySelector('#imgWrapper').style.minHeight = '125vh';
-				document.querySelector('#contentWrapper').style.minHeight = '125vh';
-				window.scrollTop = h;
+				//document.querySelector('#contentWrapper').style.minHeight = '125vh';
+				//window.scrollTop = h;
 				//document.querySelector('#contentWrapper').style.top = -h-15+'px';
 				//console.log("Landscape and not tablate"+ window.innerHeight);
 			}
 		}
 	}
-	window.onscroll=function(event) {
-		console.log('scrolled');
-	};
+	function whenDrag(e){
+		if(e.clientY > 50){
+			console.log(e.clientY)
+			document.querySelector('#imgWrapper').style.display = 'block';
+		}
+	}
 	
 	
 	window.onorientationchange = function(event) {whenLandscape() };
