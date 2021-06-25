@@ -162,7 +162,7 @@
 		//var current  = document.querySelector('#contentWrapper').clientHeight;
 		//var h  = document.querySelector('#imgWrapper').clientHeight;
 	
-		// if((window.innerHeight < 760 && window.orientation === 90) || (window.innerHeight < 760 && window.orientation === 270)){
+		// if((window.innerHeight < 760 && window.orientation === 90) || (window.innerHeight < 760 && window.orientation === -90)){
 		// 	document.querySelector('#contentWrapper').style.height = current + h + 50+'px';
 		// 	window.scrollTo(0, h+100);
 		// }else{
@@ -170,7 +170,7 @@
 		// }
 		
 		
-		if((window.innerHeight < 760 && window.orientation === 90) || (window.innerHeight < 760 && window.orientation === 270)){
+		if((window.innerHeight < 760 && window.orientation === 90) || (window.innerHeight < 760 && window.orientation === -90)){
 			document.querySelector('#imgWrapper').classList.add('v-hide');
 		}else{
 			document.querySelector('#imgWrapper').classList.remove('v-hide');
