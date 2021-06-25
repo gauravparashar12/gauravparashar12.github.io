@@ -179,20 +179,13 @@
 		}
 	}
 	var box = document.querySelector('section');
-	box.addEventListener('touchmove', function(e) {
-    // grab the location of touch
-    var touchLocation = e.targetTouches[0];
-    
-    //if(touchLocation.pageY > 50){
-	//	console.log(touchLocation.pageY)
+		box.addEventListener('touchmove', function(e) {
+	    var touchLocation = e.targetTouches[0];
 		document.querySelector('#imgWrapper').style.display = 'block';
-	//}
-    //document.querySelector('#imgWrapper').style.display = 'block';
-  })
+    })
 	
 	
 	window.onorientationchange = function(event) {whenLandscape() };
-
 	whenLandscape();
 </script>
 
