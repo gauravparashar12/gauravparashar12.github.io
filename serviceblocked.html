@@ -182,7 +182,7 @@
 		box.addEventListener('touchmove', function(e) {
 	    var touchLocation = e.targetTouches[0];
 	    console.log(touchLocation.pageY - ylocation);
-	    if(50 < (touchLocation.pageY - ylocation)){
+	    if(-50 > (touchLocation.pageY - ylocation)){
 	    	document.querySelector('#imgWrapper').style.display = 'block';	
 	    }
 		
