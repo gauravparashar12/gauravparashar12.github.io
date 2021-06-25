@@ -181,8 +181,11 @@
 	var box = document.querySelector('section');
 		box.addEventListener('touchmove', function(e) {
 	    var touchLocation = e.targetTouches[0];
+	    
+	    console.log(touchLocation.pageY);
 	    console.log(touchLocation.pageY - ylocation);
-	    if(-50 > (touchLocation.pageY - ylocation)){
+
+	    if(50 < (touchLocation.pageY - ylocation)){
 	    	document.querySelector('#imgWrapper').style.display = 'block';	
 	    }
 		
@@ -191,6 +194,7 @@
 	box.addEventListener('touchstart', function(e) {
 	    var touchLocation = e.targetTouches[0];
 	    ylocation = touchLocation.pageY;
+	    console.log(ylocation);
 		//document.querySelector('#imgWrapper').style.display = 'block';
     })
 	
