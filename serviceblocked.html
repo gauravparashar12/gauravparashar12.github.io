@@ -18,7 +18,7 @@
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
 				<!-- step1 -->
-				<section id="step1" draggable="true" ondrag="whenDrag(event)">
+				<section id="step1">
 					<div>
 						<p class="v-bmr-20">
 							You are about to subscribe to FunGamers Club <strong>FREE for 1 day</strong> thereafter <strong>R5.00 per day</strong>. Unsubscribe at anytime. 
@@ -178,6 +178,17 @@
 			document.querySelector('#imgWrapper').style.display = 'block';
 		}
 	}
+	var box = document.querySelector('section');
+	box.addEventListener('touchmove', function(e) {
+    // grab the location of touch
+    var touchLocation = e.targetTouches[0];
+    
+    //if(touchLocation.pageY > 50){
+	//	console.log(touchLocation.pageY)
+		document.querySelector('#imgWrapper').style.display = 'block';
+	//}
+    //document.querySelector('#imgWrapper').style.display = 'block';
+  })
 	
 	
 	window.onorientationchange = function(event) {whenLandscape() };
