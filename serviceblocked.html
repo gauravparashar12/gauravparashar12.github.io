@@ -161,12 +161,12 @@
 	function whenLandscape(){
 		var current  = document.querySelector('#contentWrapper').clientHeight;
 		var h  = document.querySelector('#imgWrapper').clientHeight;
-		if(window.innerHeight < 760){
-			if(window.orientation === 90 || window.orientation === 270){
+		//if(){
+			if((window.innerHeight < 760 && window.orientation === 90) || (window.innerHeight < 760 && window.orientation === 270)){
 				document.querySelector('#contentWrapper').style.height = current + h + 50+'px';
 				window.scrollTo(0, h);
 			}
-		}
+		//}
 		else{
 			document.querySelector('#contentWrapper').style.height = 'auto';
 		}
