@@ -161,41 +161,28 @@
 	function whenLandscape(){
 		if(window.innerHeight < 760){
 			if(window.orientation === 90 || window.orientation === 270){
-				//var h = document.querySelector('#imgWrapper').clientHeight;
-				document.querySelector('#imgWrapper').style.display = 'none';
-				//document.querySelector('#imgWrapper').style.overflow = 'hidden';
-				//document.querySelector('#imgWrapper').style.minHeight = '125vh';
-				//document.querySelector('#contentWrapper').style.minHeight = '125vh';
-				//window.scrollTop = h;
-				//document.querySelector('#contentWrapper').style.top = -h-15+'px';
-				//console.log("Landscape and not tablate"+ window.innerHeight);
+				document.querySelector('#imgWrapper').classList.add('v-hide');
 			}
 		}
-	}
-	function whenDrag(e){
-		if(e.clientY > 50){
-			console.log(e.clientY)
-			document.querySelector('#imgWrapper').style.display = 'block';
+		else{
+			document.querySelector('#imgWrapper').classList.remove('v-hide');
 		}
 	}
-	var box = document.querySelector('section');
+
+	var box = document.querySelector('#contentWrapper');
 		box.addEventListener('touchmove', function(e) {
 	    var touchLocation = e.targetTouches[0];
-	    
-	    console.log(touchLocation.pageY);
-	    console.log(touchLocation.pageY - ylocation);
-
+	    //console.log(touchLocation.pageY);
+	    //console.log(touchLocation.pageY - ylocation);
 	    if(50 < (touchLocation.pageY - ylocation)){
-	    	document.querySelector('#imgWrapper').style.display = 'block';	
+	    	document.querySelector('#imgWrapper').classList.remove('v-hide');	
 	    }
-		
     })
 	
 	box.addEventListener('touchstart', function(e) {
 	    var touchLocation = e.targetTouches[0];
 	    ylocation = touchLocation.pageY;
-	    console.log(ylocation);
-		//document.querySelector('#imgWrapper').style.display = 'block';
+	    //console.log(ylocation);
     })
 	
 	
