@@ -161,12 +161,12 @@
 	
 	window.onload = function(){
 		if(window.innerHeight > window.innerWidth && window.innerHeight < 760){
-	    	alert("Landscape and not tablate");
+	    	console.log("Landscape and not tablate");
 		}
 	}
 	window.onorientationchange = function(event) {
 		if(window.innerHeight > window.innerWidth && window.innerHeight < 760){
-	    	alert("Landscape not tablate");
+	    	console.log("Landscape not tablate");
 		}
 	};
 
