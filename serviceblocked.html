@@ -13,7 +13,7 @@
 	
 </head>
 <body >
-	<main class="v-container" id="contentWrapper" draggable="true" ondragstart="whenDrag(event)">
+	<main class="v-container" id="contentWrapper">
 			<figure class="text-center v-bmr-20" id="imgWrapper">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
@@ -171,9 +171,10 @@
 			}
 		}
 	}
-	function whenDrag(e){
-		console.log('y===');
-	}
+	window.onscroll=function(event) {
+		console.log('scrolled');
+	};
+	
 	
 	window.onorientationchange = function(event) {whenLandscape() };
 
