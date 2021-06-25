@@ -164,11 +164,7 @@
 		if(window.innerHeight < 760){
 			if(window.orientation === 90 || window.orientation === 270){
 				document.querySelector('#contentWrapper').style.height = current + h + 50+'px';
-				window.scroll({
-  top: h,
-  left: 0,
-  behavior: 'smooth'
-});
+				window.scrollTo(0, h);
 			}
 		}
 		else{
