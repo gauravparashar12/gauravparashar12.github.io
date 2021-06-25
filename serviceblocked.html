@@ -13,7 +13,7 @@
 	
 </head>
 <body >
-	<main class="v-container" id="contentWrapper" draggable="true" ondrag="whenDrag(event)">
+	<main class="v-container" id="contentWrapper" draggable="true" ondragstart="whenDrag(event)">
 			<figure class="text-center v-bmr-20" id="imgWrapper">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
@@ -163,6 +163,7 @@
 			if(window.orientation === 90 || window.orientation === 270){
 				//var h = document.querySelector('#imgWrapper').clientHeight;
 				document.querySelector('#imgWrapper').style.height = 0;
+				document.querySelector('#imgWrapper').style.overflow = 'hidden';
 				//document.querySelector('#imgWrapper').style.minHeight = '125vh';
 				//document.querySelector('#contentWrapper').style.minHeight = '125vh';
 				//document.querySelector('#contentWrapper').style.top = -h-15+'px';
