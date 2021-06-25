@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="https://gauravparashar12.github.io/custom.css">
 	
 </head>
-<body onload="whenLandscape()">
+<body >
 	<main class="v-container" id="contentWrapper">
 			<figure class="text-center v-bmr-20">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
@@ -160,13 +160,13 @@
 
 	function whenLandscape(){
 		if(window.innerHeight < window.innerWidth && window.innerHeight < 760){
-	    	console.log("Landscape and not tablate");
+	    	console.log("Landscape and not tablate"+ window.innerHeight);
 		}
 	}
 	
 	window.onorientationchange = function(event) {whenLandscape() };
 
-
+	whenLandscape();
 </script>
 
 
