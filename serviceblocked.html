@@ -161,17 +161,17 @@
 	function whenLandscape(){
 		if(window.innerHeight < 760){
 			if(window.orientation === 90 || window.orientation === 270){
-				var h = document.querySelector('#imgWrapper').clientHeight;
-				
+				//var h = document.querySelector('#imgWrapper').clientHeight;
+				document.querySelector('#imgWrapper').style.height = 0;
 				//document.querySelector('#imgWrapper').style.minHeight = '125vh';
 				//document.querySelector('#contentWrapper').style.minHeight = '125vh';
-				document.querySelector('#contentWrapper').style.top = -h-15+'px';
-				console.log("Landscape and not tablate"+ window.innerHeight);
+				//document.querySelector('#contentWrapper').style.top = -h-15+'px';
+				//console.log("Landscape and not tablate"+ window.innerHeight);
 			}
 		}
 	}
 	function whenDrag(e){
-		console.log('y==='+e.pageY)
+		console.log('y===');
 	}
 	
 	window.onorientationchange = function(event) {whenLandscape() };
