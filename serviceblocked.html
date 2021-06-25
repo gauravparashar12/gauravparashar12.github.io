@@ -17,7 +17,7 @@
 			<figure class="text-center v-bmr-20">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
-			
+				<!-- step1 -->
 				<section id="step1">
 					<div>
 						<p class="v-bmr-20">
@@ -27,12 +27,11 @@
 							Please enter your mobile number to complete your subscription. 
 						</p>
 					
-							<div class="v-bmr-15">
-							    <label for="inputOTP" class="v-label"><abbr class="v-text-red">*</abbr>Mobile Number</label>
-							    <input spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required onkeyup="onEnter(event,'#step1', '#step2')" >
-							    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
-						    </div>
-					
+						<div class="v-bmr-15">
+						    <label for="inputOTP" class="v-label"><abbr class="v-text-red">*</abbr>Mobile Number</label>
+						    <input spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" type="tel" class="v-input" id="inputOTP" placeholder="0821234567" required onkeyup="onEnter(event,'#step1', '#step2')" >
+						    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
+					    </div>
 					</div>
 				    <div class="v-tpd-30">
 				    	<div class="">
@@ -41,20 +40,46 @@
 				    	</div>
 				    </div>
 				</section>
+				<!-- step2 -->
 				<section id="step2" class="v-hide">
+					<div class="v-text-center">
+						<div class="v-bmr-20">
+							<h3 class="v-text-size-24"><strong>Content Services Blocked </strong></h3>
+						</div>
+						<p class="v-bmr-20">
+							You have blocked content services for this number - however, you can still purchase this specific content and all other services will remain blocked. 
+						</p>
+						<p class="v-bmr-20 ">
+							For more info: <br>
+							<a href="vodacom.co.za/content-block/faq/">vodacom.co.za/content-block/faq/</a> 
+						</p>
+						<p class="v-bmr-20">
+							Do you want to continue with this purchase? 
+						</p>
+					</div>
+					
+					<div class="v-tpd-30">
+				    	<div class="">
+				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Yes, Continue</button>
+					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
+				    	</div>
+				    </div>
+				</section>
+				<!-- step3 -->
+				<section id="step3" class="v-hide">
 					<div>
 						<p class="v-bmr-20">
 							To confirm this charge on your Vodacom account/airtime, please enter the OTP that was sent to 082*****67.
 						</p>
 						
-							<div class="v-bmr-15">
-							    <label for="inputPIN" class="v-label"><abbr class="v-text-red">*</abbr>One-Time PIN</label>
-							    <input type="tel" class="v-input" id="inputPIN" placeholder="1234" required onkeyup="onEnter(event,'#step2', '#step3')">
-							    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
-						    </div>
-						    <div class="v-bmr-15 v-text-center">
-						    	Haven't received anything? <a href="" class="v-link-nodeco"><strong>Resend OTP</strong></a> 
-						    </div>
+						<div class="v-bmr-15">
+						    <label for="inputPIN" class="v-label"><abbr class="v-text-red">*</abbr>One-Time PIN</label>
+						    <input type="tel" class="v-input" id="inputPIN" placeholder="1234" required onkeyup="onEnter(event,'#step3', '#step4')">
+						    <div  class="v-input-help-text v-text-red v-text-right">We'll never share your email with anyone else.</div>
+					    </div>
+					    <div class="v-bmr-15 v-text-center">
+					    	Haven't received anything? <a href="" class="v-link-nodeco"><strong>Resend OTP</strong></a> 
+					    </div>
 						
 					</div>
 					<div class="v-tpd-30">
@@ -62,12 +87,13 @@
 				    		<div class="v-bmr-15">
 						    	By selecting 'Accept', you agree to the <a href="" class="v-link-nodeco"><strong>Terms & Conditions</strong></a>. 
 						    </div>
-					    	<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Accept</button>
-					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
+					    	<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step3', '#step4')">Accept</button>
+					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step3', '#step1')">Cancel</button>
 				    	</div>
 				    </div>
 				</section>
-				<section id="step3" class="v-hide">
+				<!-- step4 -->
+				<section id="step4" class="v-hide">
 					<div>
 						<div class="v-vmr-24">
 							<div class="v-grid v-grid_align-center v-grid-vertical-align-center">
@@ -107,7 +133,7 @@
 					
 					<div class="v-tpd-30">
 				    	<div class="">
-				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-15" onclick="backStep('#step3', '#step1')">Close</button>
+				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-15" onclick="backStep('#step4', '#step1')">Close</button>
 				    	</div>
 				    </div>
 				</section>
@@ -118,19 +144,19 @@
 
 <script>
 	function nextStep(currentId, nextId ){
-	document.querySelector(currentId).classList.add('v-hide');
-	document.querySelector(nextId).classList.remove('v-hide');
-}
-function backStep(currentId, backId ){
-	document.querySelector(currentId).classList.add('v-hide');
-	document.querySelector(backId).classList.remove('v-hide');
-}
-function onEnter(e, currentId, nextId ){
-	if (e.keyCode === 13 || e.code === "Enter") {  
-        document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(currentId).classList.add('v-hide');
 		document.querySelector(nextId).classList.remove('v-hide');
-    }
-}
+	}
+	function backStep(currentId, backId ){
+		document.querySelector(currentId).classList.add('v-hide');
+		document.querySelector(backId).classList.remove('v-hide');
+	}
+	function onEnter(e, currentId, nextId ){
+		if (e.keyCode === 13 || e.code === "Enter") {  
+	        document.querySelector(currentId).classList.add('v-hide');
+			document.querySelector(nextId).classList.remove('v-hide');
+	    }
+	}
 
 </script>
 </body>
