@@ -2707,11 +2707,12 @@ a.v-link-white:hover,
   .v-sm-hide, .ui.table:not(.unstackable) td.v-sm-hide, .ui.table td.v-sm-hide {
     display: none !important; } }
 @media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background: #333333; }
-
+  /*body{
+  	color:$ColorWhite;
+  	background:lighten($ColorBlack, 20%);
+  }
   .v-btn {
-    color: white; } }
+		color: $ColorWhite;
+	}*/ }
 
 /*# sourceMappingURL=custom.css.map */
