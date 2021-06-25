@@ -13,7 +13,7 @@
 	
 </head>
 <body >
-	<main class="v-container" id="contentWrapper">
+	<main class="v-container" id="contentWrapper" draggable="true" ondrag="whenDrag(event)">
 			<figure class="text-center v-bmr-20" id="imgWrapper">
 				<img src="https://gauravparashar12.github.io/img.jpg" class="v-w-full">
 			</figure>
@@ -169,6 +169,9 @@
 				console.log("Landscape and not tablate"+ window.innerHeight);
 			}
 		}
+	}
+	function whenDrag(e){
+		console.log('y==='e.pageY)
 	}
 	
 	window.onorientationchange = function(event) {whenLandscape() };
