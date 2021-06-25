@@ -158,17 +158,15 @@
 	    }
 	}
 
-	
-	window.onload = function(){
+	function whenLandscape(){
 		if(window.innerHeight > window.innerWidth && window.innerHeight < 760){
 	    	console.log("Landscape and not tablate");
 		}
 	}
-	window.onorientationchange = function(event) {
-		if(window.innerHeight > window.innerWidth && window.innerHeight < 760){
-	    	console.log("Landscape not tablate");
-		}
-	};
+
+	window.addEventListener("load", function() { whenLandscape() }); 
+	
+	window.onorientationchange = function(event) {whenLandscape() };
 
 </script>
 </body>
