@@ -159,8 +159,10 @@
 	}
 
 	function whenLandscape(){
-		if(window.innerHeight < window.innerWidth && window.innerHeight < 760){
-	    	console.log("Landscape and not tablate"+ window.innerHeight);
+		if(window.innerHeight < 760){
+			if(window.orientation === 90 || window.orientation === 270){
+				console.log("Landscape and not tablate"+ window.innerHeight);
+			}
 		}
 	}
 	
