@@ -208,7 +208,7 @@
 	}
 	function checkService(step1, step2, step3, phoneInput){
 		var number = document.querySelector(phoneInput).value.trim();
-		if(number == '9876543210'){
+		if(number == '9876543210' || number == '9999988888'){
 			nextStep(step1, step2);
 		}
 		else{
