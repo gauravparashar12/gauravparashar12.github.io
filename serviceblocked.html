@@ -61,7 +61,7 @@
 					<div class="v-tpd-15">
 				    	<div class="">
 				    		<button type="submit" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step2', '#step3')">Yes, Continue</button>
-					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step1')">Cancel</button>
+					    	<button type="button" class="v-btn v-btn-block" onclick="backStep('#step2', '#step3b')">Cancel</button>
 				    	</div>
 				    </div>
 				</section>
@@ -208,7 +208,7 @@
 	}
 	function checkService(step1, step2, step3, phoneInput){
 		var number = document.querySelector(phoneInput).value.trim();
-		if(number == '9876543210' || number == '9999988888'){
+		if(number == '9876543210' || number == '9999988888' number == '0821224567'){
 			nextStep(step1, step2);
 		}
 		else{
