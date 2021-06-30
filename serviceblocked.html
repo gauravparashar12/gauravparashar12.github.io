@@ -35,7 +35,7 @@
 					</div>
 				    <div class="v-tpd-15">
 				    	<div class="">
-				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="nextStep('#step1', '#step2')">Send OTP</button>
+				    		<button type="button" class="v-btn v-btn-block v-btn-primary v-bmr-10" onclick="checkService('#step1', '#step2', '#step3', '#inputOTP')">Send OTP</button>
 				    		<button type="button" class="v-btn v-btn-block" >Cancel</button>
 				    	</div>
 				    </div>
@@ -205,6 +205,15 @@
 	        document.querySelector(currentId).classList.add('v-hide');
 			document.querySelector(nextId).classList.remove('v-hide');
 	    }
+	}
+	function checkService(step1, step2, step3, phoneInput){
+		var number = document.querySelector(phoneInput).value.trim();
+		if(number == '9876543210'){
+			nextStep(step1, step2);
+		}
+		else{
+			nextStep(step1, step3);
+		}
 	}
 
 	function whenLandscape(){
