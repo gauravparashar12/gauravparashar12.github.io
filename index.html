@@ -1,1 +1,7 @@
-Hello
+<script>
+    delete window.document.referrer;
+        window.document.__defineGetter__('referrer', function () {
+            return "yoururl.com";
+        });
+</script>
+<a href="https://wwwstg.vodacom.co.za/cloud/dcb/doi?acr=8bd0ee04782b27428864b2d732c134d390c01394f547456cd67079595cceca4585a6de65ea494b8ecf309ec2b0d19dd4057a4ffaa579e11ff0a4348fbf6c342a8e86cac374653625937559e8e18430d602d1ab92d170b99992caf4c0bddcffc431b330ab6661e011028e9345e61ab6440087adef9236ed26088ac7a00aa3c7f07ad26b55ad9c262a051bd1b2b11fe988f96b42f5c34a774c5bd485aa36f52946b2c8b5ba2185ef31f12fddba91528a7cdca95d41cd15d08837c5eb41ea8f5f5ab8fb242a2fcb67eb0fb7c3877ce348b21a9a11cb70e8e0b651424746c6efbfb77f351abbcdf4738f2d27a50fccd7d385accc2884c43417e675616c9ea912ddb2&transaction-id=6009359636654b31965a0015"></>
